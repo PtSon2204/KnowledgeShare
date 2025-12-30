@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeShare.MVC", "src\KnowledgeShare.MVC\KnowledgeShare.MVC.csproj", "{843962AA-403A-43BB-A37E-677DAD797567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeShare.API", "src\KnowledgeShare.API\KnowledgeShare.API.csproj", "{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeShare.ViewModels", "src\KnowledgeShare.ViewModels\KnowledgeShare.ViewModels.csproj", "{835D1AB8-7B65-4066-9DDA-9322BE12DE27}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{843962AA-403A-43BB-A37E-677DAD797567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843962AA-403A-43BB-A37E-677DAD797567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843962AA-403A-43BB-A37E-677DAD797567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843962AA-403A-43BB-A37E-677DAD797567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{835D1AB8-7B65-4066-9DDA-9322BE12DE27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{835D1AB8-7B65-4066-9DDA-9322BE12DE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{835D1AB8-7B65-4066-9DDA-9322BE12DE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{835D1AB8-7B65-4066-9DDA-9322BE12DE27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
