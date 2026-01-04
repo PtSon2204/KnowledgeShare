@@ -1,12 +1,16 @@
 ﻿
 using FluentValidation.AspNetCore;
 using FluentValidation;
-using KnowledgeShare.API.Interface;
 using KnowledgeShare.API.Repositories;
 using KnowledgeShare.API.Services;
-using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using KnowledgeShare.API.Data;
+using KnowledgeShare.API.Repositories.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using KnowledgeShare.ViewModels.ViewModels.Validator;
 
 namespace KnowledgeShare.API
 {
@@ -28,9 +32,13 @@ namespace KnowledgeShare.API
 
             // Register repositories
             builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+            builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+            builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
 
             // Register services
             builder.Services.AddScoped<IRoleService, RoleService>();
+            builder.Services.AddScoped<ILoginService, LoginService>();
+            builder.Services.AddScoped<IRegisterService, RegisterService>();
 
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
@@ -58,6 +66,25 @@ namespace KnowledgeShare.API
             // Đăng ký tất cả Validator có trong Assembly (Khuyên dùng)
             // Nó sẽ tự quét và đăng ký RoleVmValidator và các Validator khác cùng project
             builder.Services.AddValidatorsFromAssemblyContaining<RoleVmValidator>();
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -93,7 +120,8 @@ namespace KnowledgeShare.API
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseAuthentication(); 
+            app.UseAuthorization(); 
 
 
             app.MapControllers();

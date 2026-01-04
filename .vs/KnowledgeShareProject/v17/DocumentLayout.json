@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.viewmodels\\viewmodels\\validator\\loginrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|solutionrelative:src\\knowledgeshare.viewmodels\\viewmodels\\validator\\loginrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.viewmodels\\viewmodels\\rolevmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|solutionrelative:src\\knowledgeshare.viewmodels\\viewmodels\\rolevmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.viewmodels\\viewmodels\\validator\\registervmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|solutionrelative:src\\knowledgeshare.viewmodels\\viewmodels\\validator\\registervmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 208,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,41 +42,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RoleVmValidator.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\RoleVmValidator.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.ViewModels\\ViewModels\\RoleVmValidator.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\RoleVmValidator.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.ViewModels\\ViewModels\\RoleVmValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "LoginRequestValidator.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\LoginRequestValidator.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\LoginRequestValidator.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\LoginRequestValidator.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\LoginRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T14:16:16.549Z",
+              "WhenOpened": "2026-01-04T03:54:54.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterVmValidator.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\RegisterVmValidator.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\RegisterVmValidator.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\RegisterVmValidator.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\RegisterVmValidator.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T03:54:43.208Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Program.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Program.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Program.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Program.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAkwFEAAAA4AAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwCoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T13:16:33.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RolesController.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\RolesController.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\RolesController.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\RolesController.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\RolesController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwCYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T12:50:42.399Z",
+              "WhenOpened": "2026-01-04T03:53:38.939Z",
               "EditorCaption": ""
             }
           ]

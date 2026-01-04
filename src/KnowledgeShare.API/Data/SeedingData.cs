@@ -2,7 +2,7 @@
 using KnowledgeSpace.BackendServer.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace KnowledgeShare.API.Repositories
+namespace KnowledgeShare.API.Data
 {
     public class SeedingData
     {

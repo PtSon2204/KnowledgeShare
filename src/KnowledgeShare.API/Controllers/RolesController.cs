@@ -1,4 +1,4 @@
-﻿using KnowledgeShare.API.Interface;
+﻿using KnowledgeShare.API.Repositories.Interface;
 using KnowledgeShare.API.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
