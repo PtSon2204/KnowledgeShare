@@ -1,4 +1,5 @@
 ﻿using KnowledgeShare.API.Repositories.Interface;
+using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Identity;
 

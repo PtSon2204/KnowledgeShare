@@ -1,5 +1,7 @@
-﻿using KnowledgeShare.API.Repositories.Interface;
+﻿using System.Security.Claims;
+using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,6 +47,21 @@ namespace KnowledgeShare.API.Controllers
             }
 
             return Ok(new { message = "Đăng ký thành công!" });
+        }
+
+        [HttpGet("profile")]
+        public IActionResult Profile()
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value;
+            var userId = User.FindFirst("UserId")?.Value;
+            var roles = User.FindAll(ClaimTypes.Role).Select(r => r.Value);
+
+            return Ok(new
+            {
+                userId,
+                email,
+                roles
+            });
         }
 
     }

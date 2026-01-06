@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using KnowledgeShare.API.Repositories.Interface;
+using KnowledgeShare.API.Services.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
@@ -31,7 +32,7 @@ namespace KnowledgeShare.API.Services
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // ID của Token
-                new Claim("UserId", user.Id.ToString())
+                new Claim("UserId", user.Id.ToString()),
             };
 
             //lấy role của user chèn vào token

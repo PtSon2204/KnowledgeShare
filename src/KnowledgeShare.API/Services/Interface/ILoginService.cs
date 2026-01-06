@@ -1,4 +1,4 @@
-﻿namespace KnowledgeShare.API.Repositories.Interface
+﻿namespace KnowledgeShare.API.Services.Interface
 {
     public interface ILoginService
     {

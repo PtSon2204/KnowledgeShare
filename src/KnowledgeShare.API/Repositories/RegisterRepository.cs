@@ -13,7 +13,14 @@ namespace KnowledgeShare.API.Repositories
         }
         public async Task<IdentityResult> RegisterAsync(User user, string password)
         {
-            return await _userManager.CreateAsync(user, password);
+            var result = await _userManager.CreateAsync(user, password);
+
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(user, "Member");
+            }
+
+            return result;
         }
     }
 }

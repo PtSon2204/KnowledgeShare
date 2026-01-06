@@ -1,7 +1,7 @@
 ﻿using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
-namespace KnowledgeShare.API.Repositories.Interface
+namespace KnowledgeShare.API.Services.Interface
 {
     public interface IRegisterService
     {
