@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace KnowledgeShare.API.Repositories
+namespace KnowledgeShare.API.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {

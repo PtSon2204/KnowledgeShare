@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KnowledgeShare.API.Controllers;
-using KnowledgeShare.API.Interface;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 

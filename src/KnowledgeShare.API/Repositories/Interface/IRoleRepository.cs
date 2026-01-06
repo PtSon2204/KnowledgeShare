@@ -2,7 +2,7 @@
 using KnowledgeShare.API.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
-namespace KnowledgeShare.API.Interface
+namespace KnowledgeShare.API.Repositories.Interface
 {
     public interface IRoleRepository
     {

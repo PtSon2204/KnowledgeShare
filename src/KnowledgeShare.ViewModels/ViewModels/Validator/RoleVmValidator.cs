@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using KnowledgeShare.API.ViewModels;
 
-namespace KnowledgeShare.ViewModels.ViewModels
+namespace KnowledgeShare.ViewModels.ViewModels.Validator
 {
     public class RoleVmValidator : AbstractValidator<RoleVm>
     {
