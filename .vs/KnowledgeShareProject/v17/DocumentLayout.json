@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\functionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\functionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\functionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\functionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\interface\\ifunctionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\interface\\ifunctionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\interface\\ifunctionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\interface\\ifunctionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.viewmodels\\viewmodels\\validator\\uservmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{835D1AB8-7B65-4066-9DDA-9322BE12DE27}|src\\KnowledgeShare.ViewModels\\KnowledgeShare.ViewModels.csproj|solutionrelative:src\\knowledgeshare.viewmodels\\viewmodels\\validator\\uservmvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\functionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\functionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 208,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,67 +50,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\Interface\\IUserRepository.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IUserRepository.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\Interface\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABHAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FunctionService.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\FunctionService.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\FunctionService.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\FunctionService.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\FunctionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T14:37:19.822Z",
+              "WhenOpened": "2026-01-06T16:36:39.062Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
+              "Title": "IFunctionService.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\Interface\\IFunctionService.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\Interface\\IFunctionService.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\Interface\\IFunctionService.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\Interface\\IFunctionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T14:36:48.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\UserService.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\UserService.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\UserService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwBoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T14:35:18.664Z",
+              "WhenOpened": "2026-01-06T15:08:22.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAgwFgAAAAYAAAAAAAAAA==",
+              "Title": "FunctionRepository.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\FunctionRepository.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\FunctionRepository.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\FunctionRepository.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\FunctionRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T14:18:46.515Z",
+              "WhenOpened": "2026-01-06T15:07:52.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IFunctionRepository.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IFunctionRepository.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\Interface\\IFunctionRepository.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IFunctionRepository.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\Interface\\IFunctionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T15:07:17.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UserVmValidator.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\UserVmValidator.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\UserVmValidator.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\UserVmValidator.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.ViewModels\\ViewModels\\Validator\\UserVmValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABgAAAAAAAAAA==",
+              "Title": "FunctionsController.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\FunctionsController.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\FunctionsController.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\FunctionsController.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\FunctionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T14:42:17.869Z",
+              "WhenOpened": "2026-01-06T15:06:28.506Z",
               "EditorCaption": ""
             }
           ]
