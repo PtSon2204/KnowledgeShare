@@ -1,6 +1,9 @@
-﻿namespace KnowledgeShare.API.Services.Interface
+﻿using KnowledgeShare.ViewModels.ViewModels;
+
+namespace KnowledgeShare.API.Services.Interface
 {
-    public class ICommandService
+    public interface ICommandService
     {
+        Task<List<CommandVm>> GetAllCommandVmAsync();
     }
 }
