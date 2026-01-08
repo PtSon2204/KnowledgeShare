@@ -36,12 +36,16 @@ namespace KnowledgeShare.API
             builder.Services.AddScoped<ILoginRepository, LoginRepository>();
             builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IFunctionRepository, FunctionRepository>();
+            builder.Services.AddScoped<ICommanRepository, CommandRepository>();
 
             // Register services
             builder.Services.AddScoped<IRoleService, RoleService>();
             builder.Services.AddScoped<ILoginService, LoginService>();
             builder.Services.AddScoped<IRegisterService, RegisterService>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IFunctionService, FunctionService>();
+            builder.Services.AddScoped<ICommandService, CommandService>();  
 
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
