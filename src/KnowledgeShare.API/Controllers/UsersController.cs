@@ -93,5 +93,12 @@ namespace KnowledgeShare.API.Controllers
             return Ok(users);
         }
 
+        [HttpGet("{userId}/menu")]
+        public async Task<IActionResult> GetMenuByUserPermission(string userId)
+        {
+            var result = await _userService.GetMenuByUserPermissionAsync(userId);
+
+            return Ok(result);  
+        }
     }
 }

@@ -1,10 +1,17 @@
 ﻿
 
+using KnowledgeShare.API.ViewModels;
+using System.ComponentModel.Design;
+
 namespace KnowledgeSpace.BackendServer.Data.Entities
 {
     [Table("Permissions")]
     public class Permission
     {
+        public Permission()
+        {
+        }
+
         public Permission(string functionId, string roleId, string commandId)
         {
             FunctionId = functionId;

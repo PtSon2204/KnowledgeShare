@@ -12,5 +12,8 @@ namespace KnowledgeShare.API.Repositories.Interface
         Task<IdentityResult> DeleteRoleAsync(IdentityRole role);
         Task<List<IdentityRole>> GetAllRoleAsync();
         Task<Pagination<IdentityRole>> GetAllRolesAsync(string keyword, int pageIndex, int pageSize);
+        Task<List<Permission>> GetListPermission(string roleId);
+        Task<bool> UpdatePermisstionByRoleId(string roleId, List<Permission> permissions);    
+        
     }
 }

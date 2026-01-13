@@ -6,16 +6,16 @@ namespace KnowledgeShare.API.Services
 {
     public class CommandService : ICommandService
     {
-        private readonly ICommandService _commandService;
+        private readonly ICommanRepository _commanRepository;
 
-        public CommandService(ICommandService commandService)
+        public CommandService(ICommanRepository commanRepository)
         {
-            _commandService = commandService;
+            _commanRepository = commanRepository;
         }
 
         public async Task<List<CommandVm>> GetAllCommandVmAsync()
         {
-            var list = await _commandService.GetAllCommandVmAsync();
+            var list = await _commanRepository.GetAllCommanAsync();
 
             return list.Select(x => new CommandVm
             {

@@ -63,6 +63,19 @@ namespace KnowledgeShare.API.Services
             return users;
         }
 
+        public async Task<List<FunctionVm>> GetMenuByUserPermissionAsync(string userId)
+        {
+            var list = await _userRepository.GetMenuByUserPermission(userId);
+            return list.Select(u => new FunctionVm
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Url = u.Url,
+                ParentId = u.ParentId,
+                SortOrder = u.SortOrder,
+            }).ToList();
+        }
+
         public async Task<UserVm> GetUserByEmailAsync(string email)
         {
             var user = await _userRepository.GetUserByEmailAsync(email);

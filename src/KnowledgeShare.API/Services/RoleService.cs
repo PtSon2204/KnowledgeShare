@@ -1,7 +1,7 @@
-﻿using KnowledgeShare.API.Repositories;
-using KnowledgeShare.API.Repositories.Interface;
+﻿using KnowledgeShare.API.Repositories.Interface;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.API.ViewModels;
+using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace KnowledgeShare.API.Services
@@ -73,6 +73,28 @@ namespace KnowledgeShare.API.Services
                 Id = role.Id,
                 Name = role.Name
             };
+        }
+
+        public async Task<List<PermissionRoleVm>> GetPermissionRoleVm(string roleId)
+        {
+            var list = await _roleRepository.GetListPermission(roleId);
+            return list.Select(p => new PermissionRoleVm()
+            {
+                FunctionId = p.FunctionId,
+                CommandId = p.CommandId,
+                RoleId = p.RoleId,
+            }).ToList();
+        }
+
+        public async Task<bool> UpdatePermissionRoleVmAsync(string roleId, List<PermissionRoleVm> permissionRoleVm)
+        {
+            var permissions = permissionRoleVm.Select(p => new Permission
+            {
+                RoleId = roleId,            
+                FunctionId = p.FunctionId,   
+                CommandId = p.CommandId      
+            }).ToList();
+            return await _roleRepository.UpdatePermisstionByRoleId(roleId, permissions);
         }
 
         public async Task<IdentityResult> UpdateRoleAsync(string roleId, RoleVm roleVm)

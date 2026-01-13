@@ -95,7 +95,7 @@ namespace KnowledgeShare.API.Controllers
             return Ok(functions);
         }
 
-        [HttpGet("{functionId}/commands-in-function")]
+        [HttpGet("{functionId}/commands")]
         public async Task<IActionResult> GetCommandInFunction(string functionId)
         {
             var data = await _commandInFunctionService.GetCommandsInFunction(functionId);
@@ -106,7 +106,7 @@ namespace KnowledgeShare.API.Controllers
             return Ok(data);
         }
 
-        [HttpGet("{functionId}/commands-not-in-function")]
+        [HttpGet("{functionId}/commands/not-in-function")]
         public async Task<IActionResult> GetCommandNotInFunction(string functionId)
         {
             var data = await _commandInFunctionService.GetCommandsInFunction(functionId);
@@ -115,6 +115,26 @@ namespace KnowledgeShare.API.Controllers
                 return NotFound();
             }
             return Ok(data);
+        }
+
+        [HttpPost("{functionId}/commands")]
+        public async Task<IActionResult> PostCommandToFunction([FromBody] CommandInFunctionVm commandInFunctionVm)
+        {
+            var result = await _commandInFunctionService.CreateCommandToFunction(commandInFunctionVm);
+
+            return Ok("Created successfully!");
+        }
+
+        [HttpDelete("{functionId}/commands/{commandId}")]
+        public async Task<IActionResult> DeleteCommandToFunction(string commandId, string functionId)
+        {
+            var result = await _commandInFunctionService.DeleteCommandToFunction(commandId, functionId);
+
+            if (!result)
+            {
+                return NotFound();
+            }
+            return Ok("Deleted!");
         }
     }
 }

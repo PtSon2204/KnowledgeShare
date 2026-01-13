@@ -10,5 +10,7 @@ namespace KnowledgeShare.API.Repositories.Interface
         Task<IdentityResult> DeleteUserAsync(User user);
         Task<List<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(string id);
+        Task<List<Function>> GetMenuByUserPermission(string userId);
+
     }
 }
