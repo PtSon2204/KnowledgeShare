@@ -10,10 +10,40 @@ namespace KnowledgeShare.API.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<User> _userManager;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, UserManager<User> userManager)
         {
             _userRepository = userRepository;
+            _userManager = userManager;
+        }
+
+        public async Task<IdentityResult> ChangePasswordAsync(
+     string userId,
+     UserChangePasswordVm vm)
+        {
+            // 1. Check confirm password
+            if (vm.NewPassword != vm.ConfirmPassword)
+            {
+                return IdentityResult.Failed(
+                    new IdentityError { Description = "Confirm password does not match" }
+                );
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return IdentityResult.Failed(
+                    new IdentityError { Description = "User not found" }
+                );
+            }
+
+            // 3. Change password (Identity xử lý)
+            return await _userManager.ChangePasswordAsync(
+                user,
+                vm.OldPassword,
+                vm.NewPassword
+            );
         }
 
         public async Task<IdentityResult> CreateUserAsync(UserVm user)

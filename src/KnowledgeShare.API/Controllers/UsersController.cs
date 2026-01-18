@@ -100,5 +100,18 @@ namespace KnowledgeShare.API.Controllers
 
             return Ok(result);  
         }
+
+        [HttpPut("{id}/change-password")]
+        public async Task<IActionResult> PutUserPassword(string id, UserChangePasswordVm userVm)
+        {
+            var result = await _userService.ChangePasswordAsync(id, userVm);
+
+            if (result.Succeeded)
+            {
+                return Ok("Change password successfully!");
+            }
+
+            return BadRequest(result.Errors);   
+        }
     }
 }
