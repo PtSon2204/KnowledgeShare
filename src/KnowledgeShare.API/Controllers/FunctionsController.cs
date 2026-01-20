@@ -11,9 +11,11 @@ namespace KnowledgeShare.API.Controllers
     public class FunctionsController : ControllerBase
     {
         private readonly IFunctionService _functionService;
-        public FunctionsController(IFunctionService functionService)
+        private readonly ICommandInFunctionService _commandInFunctionService;
+        public FunctionsController(IFunctionService functionService, ICommandInFunctionService commandInFunctionService)
         {
             _functionService = functionService;
+            _commandInFunctionService = commandInFunctionService;
         }
 
         [HttpPost]
@@ -85,7 +87,54 @@ namespace KnowledgeShare.API.Controllers
         public async Task<IActionResult> GetAllFunctions()
         {
             var functions = await _functionService.GetAllFunctionVmsAsync();
+            
+            if (functions == null)
+            {
+                return NotFound();
+            }
             return Ok(functions);
+        }
+
+        [HttpGet("{functionId}/commands")]
+        public async Task<IActionResult> GetCommandInFunction(string functionId)
+        {
+            var data = await _commandInFunctionService.GetCommandsInFunction(functionId);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
+        }
+
+        [HttpGet("{functionId}/commands/not-in-function")]
+        public async Task<IActionResult> GetCommandNotInFunction(string functionId)
+        {
+            var data = await _commandInFunctionService.GetCommandsInFunction(functionId);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
+        }
+
+        [HttpPost("{functionId}/commands")]
+        public async Task<IActionResult> PostCommandToFunction([FromBody] CommandInFunctionVm commandInFunctionVm)
+        {
+            var result = await _commandInFunctionService.CreateCommandToFunction(commandInFunctionVm);
+
+            return Ok("Created successfully!");
+        }
+
+        [HttpDelete("{functionId}/commands/{commandId}")]
+        public async Task<IActionResult> DeleteCommandToFunction(string commandId, string functionId)
+        {
+            var result = await _commandInFunctionService.DeleteCommandToFunction(commandId, functionId);
+
+            if (!result)
+            {
+                return NotFound();
+            }
+            return Ok("Deleted!");
         }
     }
 }

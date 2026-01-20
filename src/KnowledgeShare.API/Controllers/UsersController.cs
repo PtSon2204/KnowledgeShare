@@ -93,5 +93,25 @@ namespace KnowledgeShare.API.Controllers
             return Ok(users);
         }
 
+        [HttpGet("{userId}/menu")]
+        public async Task<IActionResult> GetMenuByUserPermission(string userId)
+        {
+            var result = await _userService.GetMenuByUserPermissionAsync(userId);
+
+            return Ok(result);  
+        }
+
+        [HttpPut("{id}/change-password")]
+        public async Task<IActionResult> PutUserPassword(string id, UserChangePasswordVm userVm)
+        {
+            var result = await _userService.ChangePasswordAsync(id, userVm);
+
+            if (result.Succeeded)
+            {
+                return Ok("Change password successfully!");
+            }
+
+            return BadRequest(result.Errors);   
+        }
     }
 }

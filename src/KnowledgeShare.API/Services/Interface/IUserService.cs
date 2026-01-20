@@ -10,6 +10,7 @@ namespace KnowledgeShare.API.Services.Interface
         Task<IdentityResult> UpdateUserAsync(string id, UserVm user);
         Task<IdentityResult> DeleteUserAsync(string email);
         Task<List<UserVm>> GetAllUsersAsync();
-        
+        Task<List<FunctionVm>> GetMenuByUserPermissionAsync(string userId);
+        Task<IdentityResult> ChangePasswordAsync(string id, UserChangePasswordVm user);
     }
 }

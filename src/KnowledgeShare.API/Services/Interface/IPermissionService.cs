@@ -2,8 +2,8 @@
 
 namespace KnowledgeShare.API.Services.Interface
 {
-    public interface ICommandService
+    public interface IPermissionService
     {
-        Task<List<CommandVm>> GetAllCommandVmAsync();
+        Task<List<PermissionVm>> GetAllCommandViews();
     }
 }

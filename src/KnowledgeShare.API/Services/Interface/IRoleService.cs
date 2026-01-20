@@ -1,4 +1,5 @@
 ﻿using KnowledgeShare.API.ViewModels;
+using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace KnowledgeShare.API.Services.Interface
@@ -16,5 +17,7 @@ namespace KnowledgeShare.API.Services.Interface
         Task<List<RoleVm>> GetAllRolesAsync();
 
         Task<Pagination<RoleVm>> GetAllRolesAsync(string keyword, int pageIndex, int pageSize);
+        Task<List<PermissionRoleVm>> GetPermissionRoleVm(string roleId);
+        Task<bool> UpdatePermissionRoleVmAsync(string roleId, List<PermissionRoleVm> permissionRoleVm);
     }
 }

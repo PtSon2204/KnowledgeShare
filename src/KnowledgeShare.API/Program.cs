@@ -38,6 +38,9 @@ namespace KnowledgeShare.API
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IFunctionRepository, FunctionRepository>();
             builder.Services.AddScoped<ICommanRepository, CommandRepository>();
+            builder.Services.AddScoped<ICommandsInFunctionRepository, CommandInFunctionRepository>();
+            builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Register services
             builder.Services.AddScoped<IRoleService, RoleService>();
@@ -46,6 +49,9 @@ namespace KnowledgeShare.API
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IFunctionService, FunctionService>();
             builder.Services.AddScoped<ICommandService, CommandService>();  
+            builder.Services.AddScoped<ICommandInFunctionService, CommandInFunctionService>();
+            builder.Services.AddScoped<IPermissionService, PermissionService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();

@@ -1,5 +1,6 @@
 ﻿using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.API.ViewModels;
+using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KnowledgeShare.API.Controllers
@@ -98,6 +99,27 @@ namespace KnowledgeShare.API.Controllers
         {
             var result = await _roleService.GetAllRolesAsync(filter, pageIndex, pageSize);
             return Ok(result);
+        }
+
+        [HttpGet("{roleId}/permissions")]
+        public async Task<IActionResult> GetPermissionByRoleId(string roleId)
+        {
+            var permissions = await _roleService.GetPermissionRoleVm(roleId);
+
+            return Ok(permissions);
+        }
+
+        [HttpPut("{roleId}/permissions")]
+        public async Task<IActionResult> PutPermissionByRoleId(string roleId, [FromBody] List<PermissionRoleVm> permissions)
+        {
+            var result = await _roleService.UpdatePermissionRoleVmAsync(roleId, permissions);
+
+            if (result)
+            {
+                return NoContent();
+            }
+
+            return BadRequest(); 
         }
     }
 }
