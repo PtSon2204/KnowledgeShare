@@ -13,9 +13,9 @@ namespace KnowledgeShare.API.Services.Interface
         Task<KnowledgeBaseVm> GetKnowledgeBaseRequestByIdAsync(int id);
         Task<Pagination<CommentVm>> GetAllCommentPaging(int knowledgeBaseId, string keyword, int pageIndex, int pageSize);
         Task<CommentVm> GetCommentVmByIdAsync(int commentId);
-        Task<CommentCreateRequest> CreateCommentAsync(CommentCreateRequest comment);
+        Task<CommentCreateRequest> CreateCommentAsync(int knowledgeBaseId, CommentCreateRequest comment);
 
         Task<CommentCreateRequest> UpdateCommentAsync( int commentId,CommentCreateRequest comment, string currentUserName);
-        Task<bool> DeleteCommentAsync(int commentId);
+        Task<bool> DeleteCommentAsync(int knowledgeBaseId, int commentId);
     }
 }

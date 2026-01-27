@@ -14,7 +14,7 @@ namespace KnowledgeShare.API.Services
         {
             _roleRepository = roleRepository;
         }
-
+                
         public async Task<IdentityResult> CreateRoleAsync(RoleVm roleVm)
         {
             var role = new IdentityRole()
