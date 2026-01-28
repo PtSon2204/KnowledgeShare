@@ -13,16 +13,19 @@ namespace KnowledgeShare.API.Controllers
         private readonly IKnowledgeBaseService _knowledgeBaseService;
         private readonly IVoteService _voteService;
         private readonly IReportService _reportService;
-        public KnowledgeBaseController(IKnowledgeBaseService knowledgeBaseService, IVoteService voteService)
+        private readonly IAttachmentService _attachmentService;
+        public KnowledgeBaseController(IKnowledgeBaseService knowledgeBaseService, IVoteService voteService, IAttachmentService attachmentService, IReportService reportService)
         {
             _knowledgeBaseService = knowledgeBaseService;
             _voteService = voteService;
+            _attachmentService = attachmentService;
+            _reportService = reportService;
         }
 
         #region Knowledge
 
         [HttpPost]
-        public async Task<IActionResult> PostKnowledgeBase([FromBody] CreateKnowledgeBaseRequest request)
+        public async Task<IActionResult> PostKnowledgeBase([FromForm] CreateKnowledgeBaseRequest request)
         {
             var result = await _knowledgeBaseService.CreateKnowledgeBaseRequestAsync(request);
 
@@ -130,7 +133,6 @@ namespace KnowledgeShare.API.Controllers
         }
         #endregion
 
-
         #region Votes
         [HttpPost("{knowledgeId}/votes")]
         public async Task<IActionResult> PostVoteRequest(int knowledgeId, [FromBody] VoteCreateRequest request)
@@ -201,6 +203,26 @@ namespace KnowledgeShare.API.Controllers
             }
             return Ok("Deleted successfully!");
         }
-        #endregion  
+        #endregion
+
+        #region Attachments
+        [HttpGet("{knowledgeBaseId}/attachments")]
+        public async Task<IActionResult> GetAttachment(int knowledgeBaseId)
+        {
+            var result = await _attachmentService.GetListAttachmentAsync(knowledgeBaseId);
+
+            return Ok(result);
+        }
+
+        [HttpDelete("{knowledgeBaseId}/attachments/{attachmentId}")]
+        public async Task<IActionResult> DeleteAttachment(int attachmentId)
+        {
+            var result = await _attachmentService.DeleteAttachmentAsync(attachmentId);
+
+            return Ok("Deleted successfully!");
+        }
+
+        
+        #endregion
     }
 }

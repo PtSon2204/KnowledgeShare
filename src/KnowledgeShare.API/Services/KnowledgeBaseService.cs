@@ -9,6 +9,8 @@ using KnowledgeShare.API.ViewModels;
 using KnowledgeShare.ViewModels.Content;
 using KnowledgeSpace.BackendServer.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace KnowledgeShare.API.Services
 {
@@ -16,11 +18,13 @@ namespace KnowledgeShare.API.Services
     {
         private readonly IKnowledgeBaseRepository _knowledgeBaseRepository;
         private readonly ApplicationDbContext _dbContext;
+        private readonly IStorageService _storageService;
 
-        public KnowledgeBaseService(IKnowledgeBaseRepository knowledgeBaseRepository, ApplicationDbContext applicationDb)
+        public KnowledgeBaseService(IKnowledgeBaseRepository knowledgeBaseRepository, ApplicationDbContext applicationDb, IStorageService storageService)
         {
             _knowledgeBaseRepository = knowledgeBaseRepository;
             _dbContext = applicationDb;
+            _storageService = storageService;
         }
 
         private string ToUnsignString(string input)
@@ -62,6 +66,22 @@ namespace KnowledgeShare.API.Services
 
             return result.ToLower();
         }
+
+        private async Task<Attachment> SaveFile(int knowledgeBaseId, IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            var attachmentEntity = new Attachment()
+            {
+                FileName = fileName,
+                FilePath = _storageService.GetFileUrl(fileName),
+                FileSize = file.Length,
+                FileType = Path.GetExtension(fileName),
+                KnowledgeBaseId = knowledgeBaseId
+            };
+              return attachmentEntity;
+        }
         public async Task<CreateKnowledgeBaseRequest> CreateKnowledgeBaseRequestAsync(CreateKnowledgeBaseRequest knowledge)
         {
             var knowledgeBase = new KnowledgeBase
@@ -79,12 +99,21 @@ namespace KnowledgeShare.API.Services
                 Labels = knowledge.Labels
             };
 
-            await _knowledgeBaseRepository.CreateKnowledgeBaseAsync(knowledgeBase);
+            //Process attachment
+            if (knowledge.Attachments != null && knowledge.Attachments.Count > 0)
+            {
+                foreach (var attachment in knowledge.Attachments)
+                {
+                    var attachmentEntity = await SaveFile(knowledgeBase.Id, attachment);
+                    _dbContext.Attachments.Add(attachmentEntity);
+                }
+            }
 
+            //Process label
             if (!string.IsNullOrEmpty(knowledge.Labels))
             {
                 string[] labels = knowledge.Labels.Split(',');
-                foreach ( var labelName in labels )
+                foreach (var labelName in labels)
                 {
                     var labelId = ToUnsignString(labelName);
                     var existingLabel = await _dbContext.Labels.FindAsync(labelId);
@@ -100,16 +129,17 @@ namespace KnowledgeShare.API.Services
                         _dbContext.SaveChanges();
                     }
 
-                        var labelInKnowledBase = new LabelInKnowledgeBase()
-                        {
-                            KnowledgeBaseId = knowledgeBase.Id,
-                            LabelId = labelId,
-                        };
-                        _dbContext.LabelInKnowledgeBases.Add(labelInKnowledBase);
-                       _dbContext.SaveChanges();
-                    
+                    var labelInKnowledBase = new LabelInKnowledgeBase()
+                    {
+                        KnowledgeBaseId = knowledgeBase.Id,
+                        LabelId = labelId,
+                    };
+                    _dbContext.LabelInKnowledgeBases.Add(labelInKnowledBase);
+                    _dbContext.SaveChanges();
                 }
-            } 
+            }
+
+            await _knowledgeBaseRepository.CreateKnowledgeBaseAsync(knowledgeBase);
 
             return knowledge;
         }

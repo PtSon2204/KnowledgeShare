@@ -5,22 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\knowledgebasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\knowledgebasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\interface\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\interface\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\repositories\\interface\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\repositories\\interface\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,61 +24,9 @@
               "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
               "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
               "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAswIYAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T14:42:05.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReportService.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\ReportService.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\ReportService.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\ReportService.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\ReportService.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAowDoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T14:35:36.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IReportService.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\Interface\\IReportService.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\Interface\\IReportService.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\Interface\\IReportService.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\Interface\\IReportService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T14:35:19.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ReportRepository.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\ReportRepository.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\ReportRepository.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\ReportRepository.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\ReportRepository.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAiwBsAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T14:24:16.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IReportRepository.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IReportRepository.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Repositories\\Interface\\IReportRepository.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Repositories\\Interface\\IReportRepository.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Repositories\\Interface\\IReportRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T14:23:04.726Z",
+              "WhenOpened": "2026-01-28T14:29:22.783Z",
               "EditorCaption": ""
             }
           ]
