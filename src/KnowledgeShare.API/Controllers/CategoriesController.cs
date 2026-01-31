@@ -1,4 +1,6 @@
-﻿using KnowledgeShare.API.Services.Interface;
+﻿using KnowledgeShare.API.Authorization;
+using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.Content;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +18,9 @@ namespace KnowledgeShare.API.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpPost] 
+        [HttpPost]
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.CREATE)] 
+        
         public async Task<IActionResult> PostCategory([FromBody] CategoryCreateRequest request)
         {
             var result = await _categoryService.CreateCategoryCreateRequestAsync(request);
@@ -29,7 +33,8 @@ namespace KnowledgeShare.API.Controllers
             return Ok("Create successfully!");
         }
 
-        [HttpGet]  
+        [HttpGet]
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.VIEW)]
         public async Task<IActionResult> GetCategories()
         {
             var result = await _categoryService.GetCategoryCreateRequestAllAsync();
@@ -38,6 +43,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("id")]
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.VIEW)]
         public async Task<IActionResult> GetCategoryById(int cateId)
         {
             var result = await _categoryService.GetCategoryCreateRequestAsync(cateId);
@@ -46,6 +52,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPut]
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.UPDATE)]
         public async Task<IActionResult> PutCategory(int cateId, [FromBody] CategoryCreateRequest request)
         {
             var result = await _categoryService.UpdateCategoryCreateRequestAsync(cateId, request);
@@ -59,6 +66,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpDelete("id")]
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.DELETE)]
         public async Task<IActionResult> DeleteCategoryById(int cateId)
         {
             var result = await _categoryService.DeleteCategoryCreateRequestAsync(cateId);

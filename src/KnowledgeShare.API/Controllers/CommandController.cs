@@ -19,6 +19,7 @@ namespace KnowledgeShare.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetListCommand()
         {
+            var user = User.Identity.Name;
             var commands = await _commandService.GetAllCommandVmAsync();
 
             if (commands == null)

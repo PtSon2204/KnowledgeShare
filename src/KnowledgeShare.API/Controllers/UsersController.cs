@@ -1,4 +1,6 @@
-﻿using KnowledgeShare.API.Services;
+﻿using KnowledgeShare.API.Authorization;
+using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Services;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.API.ViewModels;
 using KnowledgeShare.ViewModels.ViewModels;
@@ -21,6 +23,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPost]
+        [ClaimRequirement(FunctionCode.SYSTEM_USER, CommandCode.CREATE)]
         public async Task<IActionResult> PostUser([FromBody] UserVm userVm)
         {
             if (!ModelState.IsValid)
@@ -40,6 +43,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("{email}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_USER, CommandCode.VIEW)]
         public async Task<IActionResult> GetByEmail(string email)
         {
             var user = await _userService.GetUserByEmailAsync(email);
@@ -54,6 +58,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: PUT:  http://localhost:7122/api/roles/{id}
         [HttpPut("{id}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.UPDATE)]
         public async Task<IActionResult> PutRole(string id, [FromBody] UserVm userVm)
         {
             if (!ModelState.IsValid)
@@ -73,6 +78,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpDelete("{email}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.DELETE)]
         public async Task<IActionResult> DeteleUser(string email)
         {
             var result = await _userService.DeleteUserAsync(email);
@@ -87,6 +93,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("all")]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.VIEW)]
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await _userService.GetAllUsersAsync();

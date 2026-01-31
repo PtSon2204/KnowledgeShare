@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\controllers\\knowledgebasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\controllers\\knowledgebasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\authorization\\claimrequirementfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\authorization\\claimrequirementfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|d:\\semester 7\\mysecondproject_api\\knowledgeshareproject\\src\\knowledgeshare.api\\services\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98712CD0-07A3-4B37-8F9F-8FDA39DABB8A}|src\\KnowledgeShare.API\\KnowledgeShare.API.csproj|solutionrelative:src\\knowledgeshare.api\\services\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 208,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KnowledgeBaseController.cs",
-              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
-              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
-              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
-              "RelativeToolTip": "src\\KnowledgeShare.API\\Controllers\\KnowledgeBaseController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANIAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\LoginService.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Services\\LoginService.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Services\\LoginService.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Services\\LoginService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAvwFYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T14:29:22.783Z",
+              "WhenOpened": "2026-01-31T15:04:32.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClaimRequirementFilter.cs",
+              "DocumentMoniker": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Authorization\\ClaimRequirementFilter.cs",
+              "RelativeDocumentMoniker": "src\\KnowledgeShare.API\\Authorization\\ClaimRequirementFilter.cs",
+              "ToolTip": "D:\\Semester 7\\MySecondProject_API\\KnowledgeShareProject\\src\\KnowledgeShare.API\\Authorization\\ClaimRequirementFilter.cs",
+              "RelativeToolTip": "src\\KnowledgeShare.API\\Authorization\\ClaimRequirementFilter.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwCMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T15:05:34.484Z",
               "EditorCaption": ""
             }
           ]

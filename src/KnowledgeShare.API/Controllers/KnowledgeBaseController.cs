@@ -1,4 +1,6 @@
-﻿using KnowledgeShare.API.Services;
+﻿using KnowledgeShare.API.Authorization;
+using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Services;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.Content;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +27,7 @@ namespace KnowledgeShare.API.Controllers
         #region Knowledge
 
         [HttpPost]
+        [ClaimRequirement(FunctionCode.CONTENT_KNOWLEDGEBASE, CommandCode.CREATE)]
         public async Task<IActionResult> PostKnowledgeBase([FromForm] CreateKnowledgeBaseRequest request)
         {
             var result = await _knowledgeBaseService.CreateKnowledgeBaseRequestAsync(request);
@@ -33,6 +36,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet]
+        [ClaimRequirement(FunctionCode.CONTENT_KNOWLEDGEBASE, CommandCode.VIEW)]
         public async Task<IActionResult> GetAllKnowledgeBase()
         {
             var list = await _knowledgeBaseService.GetAllKnowledgeBaseRequestsAsync();
@@ -41,6 +45,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ClaimRequirement(FunctionCode.CONTENT_KNOWLEDGEBASE, CommandCode.DELETE)]
         public async Task<IActionResult> DeleteKnowledgeBase(int id)
         {
             var result = await _knowledgeBaseService.DeleteKnowledgeBaseRequestAsync(id);
@@ -49,6 +54,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ClaimRequirement(FunctionCode.CONTENT_KNOWLEDGEBASE, CommandCode.VIEW)]
         public async Task<IActionResult> GetKnowledgeBaseById(int id)
         {
             var result = await _knowledgeBaseService.GetKnowledgeBaseRequestByIdAsync(id);
@@ -57,6 +63,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [ClaimRequirement(FunctionCode.CONTENT_KNOWLEDGEBASE, CommandCode.UPDATE)]
         public async Task<IActionResult> PutKnowledgeBase(int id, [FromBody] CreateKnowledgeBaseRequest request)
         {
             var result = await _knowledgeBaseService.UpdateKnowledgeBaseRequestAsync(id, request);
@@ -69,6 +76,7 @@ namespace KnowledgeShare.API.Controllers
         #region Comment
 
         [HttpGet("{knowledgeBaseId}/comments/keyword")]
+        [ClaimRequirement(FunctionCode.CONTENT_COMMENT, CommandCode.VIEW)]
         public async Task<IActionResult> GetCommentPaging(int knowledgeBaseId, string keyword, int pageIndex, int pageSize)
         {
             var result = await _knowledgeBaseService.GetAllCommentPaging(knowledgeBaseId, keyword, pageIndex, pageSize);
@@ -77,6 +85,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("{knowledgeBaseId}/comments/{commentId}")]
+        [ClaimRequirement(FunctionCode.CONTENT_COMMENT, CommandCode.VIEW)]
         public async Task<IActionResult> GetCommentDetail(int commentId)
         {
             var comment = await _knowledgeBaseService.GetCommentVmByIdAsync(commentId);
@@ -89,6 +98,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPost("{knowledgeBaseId}/comments")]
+        [ClaimRequirement(FunctionCode.CONTENT_COMMENT, CommandCode.CREATE)]
         public async Task<IActionResult> CreateComment(int knowledgeBaseId, [FromBody] CommentCreateRequest request)
         {
             var result = await _knowledgeBaseService.CreateCommentAsync( knowledgeBaseId, request);
@@ -102,6 +112,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPut("{knowledgeBaseId}/comments/{commentId}")]
+        [ClaimRequirement(FunctionCode.CONTENT_COMMENT, CommandCode.UPDATE)]
         public async Task<IActionResult> UpdateComment(int commentId, CommentCreateRequest request)
         {
             var userName = User.Identity!.Name;
@@ -120,6 +131,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpDelete("{knowledgeBaseId}/comments/{commentId}")]
+        [ClaimRequirement(FunctionCode.CONTENT_COMMENT, CommandCode.DELETE)]
         public async Task<IActionResult> DeleteComment(int knowledgeBaseId, int commentId)
         {
             var result = await _knowledgeBaseService.DeleteCommentAsync(knowledgeBaseId, commentId);

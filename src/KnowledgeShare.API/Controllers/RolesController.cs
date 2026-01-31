@@ -1,4 +1,6 @@
-﻿using KnowledgeShare.API.Services.Interface;
+﻿using KnowledgeShare.API.Authorization;
+using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.API.ViewModels;
 using KnowledgeShare.ViewModels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +20,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: POST: http://localhost:7122/api/roles
         [HttpPost]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.CREATE)]
         public async Task<IActionResult> PostRole([FromBody] RoleVm roleVm)
         {
             if (!ModelState.IsValid)
@@ -38,6 +41,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: GET: http://localhost:7122/api/roles/{id}
         [HttpGet("{id}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.VIEW)]
         public async Task<IActionResult> GetById(string id)
         {
             var role = await _roleService.GetById(id);
@@ -52,6 +56,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: PUT:  http://localhost:7122/api/roles/{id}
         [HttpPut("{id}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.UPDATE)]
         public async Task<IActionResult> PutRole(string id, [FromBody] RoleVm roleVm)
         {
             if (!ModelState.IsValid)
@@ -72,6 +77,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: PUT:  http://localhost:7122/api/roles/{id}
         [HttpDelete("{id}")]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.DELETE)]
         public async Task<IActionResult> DeteleRole(string id)
         {
             var result = await _roleService.DeleteRoleAsync(id);
@@ -87,6 +93,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: PUT:  http://localhost:7122/api/roles/
         [HttpGet("all")]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.VIEW)]
         public async Task<IActionResult> GetAllRoles()
         {
             var roles = await _roleService.GetAllRolesAsync();
@@ -95,6 +102,7 @@ namespace KnowledgeShare.API.Controllers
 
         //URL: PUT:  http://localhost:7122/api/roles/?filter={keyword}&pageIndex=1&pageSize=10
         [HttpGet("filter")]
+        [ClaimRequirement(FunctionCode.SYSTEM_ROLE, CommandCode.VIEW)]
         public async Task<IActionResult> GetRoles(string? filter, int pageIndex = 1, int pageSize = 10)
         {
             var result = await _roleService.GetAllRolesAsync(filter, pageIndex, pageSize);
@@ -102,6 +110,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet("{roleId}/permissions")]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.VIEW)]
         public async Task<IActionResult> GetPermissionByRoleId(string roleId)
         {
             var permissions = await _roleService.GetPermissionRoleVm(roleId);
@@ -110,6 +119,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPut("{roleId}/permissions")]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.UPDATE)]
         public async Task<IActionResult> PutPermissionByRoleId(string roleId, [FromBody] List<PermissionRoleVm> permissions)
         {
             var result = await _roleService.UpdatePermissionRoleVmAsync(roleId, permissions);

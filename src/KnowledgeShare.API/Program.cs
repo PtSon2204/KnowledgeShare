@@ -60,6 +60,7 @@ namespace KnowledgeShare.API
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
+
             builder.Services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
