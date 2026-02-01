@@ -12,6 +12,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using KnowledgeShare.ViewModels.ViewModels.Validator;
 using KnowledgeShare.API.Services.Interface;
+using Microsoft.AspNetCore.Mvc;
+using KnowledgeShare.API.Middleware;
 
 namespace KnowledgeShare.API
 {
@@ -59,6 +61,12 @@ namespace KnowledgeShare.API
 
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //tắt cái model state của asp có sẵn
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
 
             builder.Services.Configure<IdentityOptions>(options =>
@@ -135,6 +143,8 @@ namespace KnowledgeShare.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseErrorWrapping();
 
             app.UseHttpsRedirection();
 

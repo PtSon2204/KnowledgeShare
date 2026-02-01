@@ -1,5 +1,6 @@
 ﻿using KnowledgeShare.API.Authorization;
 using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Helpers;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.Content;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,8 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpPost]
-        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.CREATE)] 
+        [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.CREATE)]
+        [ApiValidationFilter] 
         
         public async Task<IActionResult> PostCategory([FromBody] CategoryCreateRequest request)
         {
@@ -35,6 +37,7 @@ namespace KnowledgeShare.API.Controllers
 
         [HttpGet]
         [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.VIEW)]
+        [ApiValidationFilter]
         public async Task<IActionResult> GetCategories()
         {
             var result = await _categoryService.GetCategoryCreateRequestAllAsync();
@@ -53,6 +56,7 @@ namespace KnowledgeShare.API.Controllers
 
         [HttpPut]
         [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.UPDATE)]
+        [ApiValidationFilter]
         public async Task<IActionResult> PutCategory(int cateId, [FromBody] CategoryCreateRequest request)
         {
             var result = await _categoryService.UpdateCategoryCreateRequestAsync(cateId, request);
@@ -67,6 +71,7 @@ namespace KnowledgeShare.API.Controllers
 
         [HttpDelete("id")]
         [ClaimRequirement(FunctionCode.CONTENT_CATEGORY, CommandCode.DELETE)]
+        [ApiValidationFilter]
         public async Task<IActionResult> DeleteCategoryById(int cateId)
         {
             var result = await _categoryService.DeleteCategoryCreateRequestAsync(cateId);

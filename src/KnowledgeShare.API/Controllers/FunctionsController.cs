@@ -1,5 +1,6 @@
 ﻿using KnowledgeShare.API.Authorization;
 using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Helpers;
 using KnowledgeShare.API.Services;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.ViewModels.ViewModels;
@@ -22,22 +23,20 @@ namespace KnowledgeShare.API.Controllers
 
         [HttpPost]
         [ClaimRequirement(FunctionCode.SYSTEM_FUNCTION, CommandCode.CREATE)]
+        [ApiValidationFilter]
         public async Task<IActionResult> PostFunction([FromBody] FunctionVm functionVm)
         {
-            if (!ModelState.IsValid)
+            throw new Exception();
+            var result = await _functionService.CreateFunctionVmAsync(functionVm);
+
+            if (result == null)
             {
-                return BadRequest(ModelState);
+                return BadRequest(new ApiBadRequestResponse(
+                    $"Function with id {functionVm.Id} already exists or creation failed"
+                ));
             }
 
-            var result = await _functionService.CreateFunctionVmAsync(functionVm);
-            if (result != null)
-            {
-                return Ok("Create successfully!");
-            }
-            else
-            {
-                return BadRequest("Created fail!");
-            }
+            return Ok(new ApiOkResponse(result));
         }
 
         [HttpGet("{id}")]
@@ -48,10 +47,10 @@ namespace KnowledgeShare.API.Controllers
 
             if (function == null)
             {
-                return NotFound();
+                return NotFound(new ApiNotFoundResponse($"Cannot found with id {id}"));
             }
 
-            return Ok(function);
+            return Ok(new ApiOkResponse(function));
         }
 
         //URL: PUT:  http://localhost:7122/api/roles/{id}
@@ -71,7 +70,7 @@ namespace KnowledgeShare.API.Controllers
             }
             else
             {
-                return BadRequest("Not found!");
+                return BadRequest(new ApiBadRequestResponse("Put function failed!"));
             }
         }
 
@@ -131,6 +130,10 @@ namespace KnowledgeShare.API.Controllers
         public async Task<IActionResult> PostCommandToFunction([FromBody] CommandInFunctionVm commandInFunctionVm)
         {
             var result = await _commandInFunctionService.CreateCommandToFunction(commandInFunctionVm);
+            if (result == null)
+            {
+                return BadRequest(new ApiBadRequestResponse("Put command to function failed!"));
+            }
 
             return Ok("Created successfully!");
         }

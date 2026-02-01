@@ -1,0 +1,23 @@
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace KnowledgeShare.API.Helpers
+{
+    public class ApiBadRequestResponse : ApiResponse
+    {
+        public IEnumerable<string> Errors { get; set; }
+        public ApiBadRequestResponse(ModelStateDictionary modelState) : base(400)
+        {
+            if (modelState.IsValid)
+            {
+                throw new ArgumentException("ModelState must be invalid", nameof(modelState));
+            }
+
+            Errors = modelState.SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToArray();
+        }
+
+        public ApiBadRequestResponse(string message) : base(400, message)
+        {
+
+        }
+    }
+}
