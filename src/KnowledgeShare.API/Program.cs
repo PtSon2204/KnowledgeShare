@@ -14,6 +14,7 @@ using KnowledgeShare.ViewModels.ViewModels.Validator;
 using KnowledgeShare.API.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using KnowledgeShare.API.Middleware;
+using Serilog;
 
 namespace KnowledgeShare.API
 {
@@ -22,6 +23,11 @@ namespace KnowledgeShare.API
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Host.UseSerilog((context, logger) =>
+            {
+                logger.ReadFrom.Configuration(context.Configuration);
+            });
 
             // Lấy Connection String từ appsettings.json
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

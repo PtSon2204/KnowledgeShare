@@ -15,10 +15,12 @@ namespace KnowledgeShare.API.Controllers
     {
         private readonly IFunctionService _functionService;
         private readonly ICommandInFunctionService _commandInFunctionService;
-        public FunctionsController(IFunctionService functionService, ICommandInFunctionService commandInFunctionService)
+        private readonly ILogger<FunctionsController> _logger;
+        public FunctionsController(IFunctionService functionService, ICommandInFunctionService commandInFunctionService, ILogger<FunctionsController> logger)
         {
             _functionService = functionService;
             _commandInFunctionService = commandInFunctionService;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -26,21 +28,25 @@ namespace KnowledgeShare.API.Controllers
         [ApiValidationFilter]
         public async Task<IActionResult> PostFunction([FromBody] FunctionVm functionVm)
         {
-            throw new Exception();
+            _logger.LogInformation("Begin PostFunction API");
             var result = await _functionService.CreateFunctionVmAsync(functionVm);
 
             if (result == null)
             {
+                _logger.LogInformation("Post function api - failed");
+
                 return BadRequest(new ApiBadRequestResponse(
                     $"Function with id {functionVm.Id} already exists or creation failed"
                 ));
             }
 
+            _logger.LogInformation("Post function api - success");
             return Ok(new ApiOkResponse(result));
         }
 
         [HttpGet("{id}")]
         [ClaimRequirement(FunctionCode.SYSTEM_FUNCTION, CommandCode.VIEW)]
+        [ApiValidationFilter]
         public async Task<IActionResult> GetById(string id)
         {
             var function = await _functionService.GetFunctionVmByIdAsync(id);
@@ -56,6 +62,7 @@ namespace KnowledgeShare.API.Controllers
         //URL: PUT:  http://localhost:7122/api/roles/{id}
         [HttpPut("{id}")]
         [ClaimRequirement(FunctionCode.SYSTEM_FUNCTION, CommandCode.UPDATE)]
+        [ApiValidationFilter]
         public async Task<IActionResult> PutRole(string id, [FromBody] FunctionVm functionVm)
         {
             if (!ModelState.IsValid)
