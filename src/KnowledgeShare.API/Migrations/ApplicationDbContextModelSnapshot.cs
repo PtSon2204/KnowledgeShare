@@ -75,9 +75,6 @@ namespace KnowledgeShare.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommentId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -99,16 +96,11 @@ namespace KnowledgeShare.API.Migrations
                         .HasMaxLength(4)
                         .HasColumnType("varchar(4)");
 
-                    b.Property<int?>("KnowledgeBaseId")
+                    b.Property<int>("KnowledgeBaseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
 
                     b.HasKey("Id");
 
@@ -628,9 +620,6 @@ namespace KnowledgeShare.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -649,11 +638,6 @@ namespace KnowledgeShare.API.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ReportUserId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");

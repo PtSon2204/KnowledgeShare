@@ -1,22 +1,87 @@
-﻿using KnowledgeShare.API.Repositories;
+﻿using System.Text.RegularExpressions;
+using System.Text;
+using KnowledgeShare.API.Data;
+using KnowledgeShare.API.Repositories;
 using KnowledgeShare.API.Repositories.Entities;
 using KnowledgeShare.API.Repositories.Interface;
 using KnowledgeShare.API.Services.Interface;
 using KnowledgeShare.API.ViewModels;
 using KnowledgeShare.ViewModels.Content;
 using KnowledgeSpace.BackendServer.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace KnowledgeShare.API.Services
 {
     public class KnowledgeBaseService : IKnowledgeBaseService
     {
         private readonly IKnowledgeBaseRepository _knowledgeBaseRepository;
+        private readonly ApplicationDbContext _dbContext;
+        private readonly IStorageService _storageService;
 
-        public KnowledgeBaseService(IKnowledgeBaseRepository knowledgeBaseRepository)
+        public KnowledgeBaseService(IKnowledgeBaseRepository knowledgeBaseRepository, ApplicationDbContext applicationDb, IStorageService storageService)
         {
             _knowledgeBaseRepository = knowledgeBaseRepository;
+            _dbContext = applicationDb;
+            _storageService = storageService;
         }
 
+        private string ToUnsignString(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return string.Empty;
+
+            // Trim khoảng trắng đầu cuối
+            input = input.Trim();
+
+            // Loại bỏ các ký tự đặc biệt ASCII
+            for (int i = 0x20; i < 0x30; i++)
+            {
+                input = input.Replace(((char)i).ToString(), "");
+            }
+
+            // Thay thế các ký tự phân cách bằng dấu -
+            input = input.Replace(".", "-")
+                         .Replace(",", "-")
+                         .Replace(";", "-")
+                         .Replace(":", "-")
+                         .Replace(" ", "-");
+
+            // Bỏ dấu tiếng Việt
+            Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
+            string temp = input.Normalize(NormalizationForm.FormD);
+            string result = regex.Replace(temp, string.Empty)
+                                  .Replace('đ', 'd')
+                                  .Replace('Đ', 'D');
+
+            // Xóa ký tự ?
+            result = result.Replace("?", "");
+
+            // Gộp nhiều dấu - thành 1 dấu -
+            while (result.Contains("--"))
+            {
+                result = result.Replace("--", "-");
+            }
+
+            return result.ToLower();
+        }
+
+        private async Task<Attachment> SaveFile(int knowledgeBaseId, IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            var attachmentEntity = new Attachment()
+            {
+                FileName = fileName,
+                FilePath = _storageService.GetFileUrl(fileName),
+                FileSize = file.Length,
+                FileType = Path.GetExtension(fileName),
+                KnowledgeBaseId = knowledgeBaseId
+            };
+              return attachmentEntity;
+        }
         public async Task<CreateKnowledgeBaseRequest> CreateKnowledgeBaseRequestAsync(CreateKnowledgeBaseRequest knowledge)
         {
             var knowledgeBase = new KnowledgeBase
@@ -34,7 +99,48 @@ namespace KnowledgeShare.API.Services
                 Labels = knowledge.Labels
             };
 
+            //Process attachment
+            if (knowledge.Attachments != null && knowledge.Attachments.Count > 0)
+            {
+                foreach (var attachment in knowledge.Attachments)
+                {
+                    var attachmentEntity = await SaveFile(knowledgeBase.Id, attachment);
+                    _dbContext.Attachments.Add(attachmentEntity);
+                }
+            }
+
+            //Process label
+            if (!string.IsNullOrEmpty(knowledge.Labels))
+            {
+                string[] labels = knowledge.Labels.Split(',');
+                foreach (var labelName in labels)
+                {
+                    var labelId = ToUnsignString(labelName);
+                    var existingLabel = await _dbContext.Labels.FindAsync(labelId);
+
+                    if (existingLabel == null)
+                    {
+                        var labelEntity = new Label()
+                        {
+                            Id = labelId,
+                            Name = labelName,
+                        };
+                        _dbContext.Labels.Add(labelEntity);
+                        _dbContext.SaveChanges();
+                    }
+
+                    var labelInKnowledBase = new LabelInKnowledgeBase()
+                    {
+                        KnowledgeBaseId = knowledgeBase.Id,
+                        LabelId = labelId,
+                    };
+                    _dbContext.LabelInKnowledgeBases.Add(labelInKnowledBase);
+                    _dbContext.SaveChanges();
+                }
+            }
+
             await _knowledgeBaseRepository.CreateKnowledgeBaseAsync(knowledgeBase);
+
             return knowledge;
         }
 
@@ -132,6 +238,36 @@ namespace KnowledgeShare.API.Services
 
             await _knowledgeBaseRepository.UpdateKnowledgeBaseAsync(knowledgeBase);
 
+            if (!string.IsNullOrEmpty(knowledge.Labels))
+            {
+                string[] labels = knowledge.Labels.Split(',');
+                foreach (var labelName in labels)
+                {
+                    var labelId = ToUnsignString(labelName);
+                    var existingLabel = await _dbContext.Labels.FindAsync(labelId);
+
+                    if (existingLabel == null)
+                    {
+                        var labelEntity = new Label()
+                        {
+                            Id = labelId,
+                            Name = labelName,
+                        };
+                        _dbContext.Labels.Add(labelEntity);
+                        _dbContext.SaveChanges();
+                    }
+
+                    var labelInKnowledBase = new LabelInKnowledgeBase()
+                    {
+                        KnowledgeBaseId = knowledgeBase.Id,
+                        LabelId = labelId,
+                    };
+                    _dbContext.LabelInKnowledgeBases.Add(labelInKnowledBase);
+                    _dbContext.SaveChanges();
+
+                }
+            }
+
             return knowledge;
         }
 
@@ -149,7 +285,7 @@ namespace KnowledgeShare.API.Services
                 OwnerUserId = comment.OwnerUserId,
             };
         }
-        public async Task<CommentCreateRequest> CreateCommentAsync(CommentCreateRequest comment)
+        public async Task<CommentCreateRequest> CreateCommentAsync(int knowledgeBaseId, CommentCreateRequest comment)
         {
             var commentCreate = new Comment
             {
@@ -159,6 +295,16 @@ namespace KnowledgeShare.API.Services
             };
 
             await _knowledgeBaseRepository.CreateCommentRepo(commentCreate);
+
+            var knowledgeBase = await _dbContext.KnowledgeBases.FindAsync(knowledgeBaseId);
+            if (knowledgeBase != null)
+            {
+                return null;
+            }
+            knowledgeBase.NumberOfComments = knowledgeBase.NumberOfComments.GetValueOrDefault(0) + 1;
+            _dbContext.KnowledgeBases.Update(knowledgeBase);
+            _dbContext.SaveChanges();
+
             return comment;
         }
         public async Task<CommentCreateRequest> UpdateCommentAsync(int commentId, CommentCreateRequest comment, string currentUserName)
@@ -176,7 +322,7 @@ namespace KnowledgeShare.API.Services
             return comment;
         }
 
-        public async Task<bool> DeleteCommentAsync( int commentId)
+        public async Task<bool> DeleteCommentAsync(int knowledgeBaseId, int commentId)
         {
             var comment = await _knowledgeBaseRepository.GetCommentDetailRepo( commentId);
 
@@ -186,7 +332,16 @@ namespace KnowledgeShare.API.Services
             }
 
             await _knowledgeBaseRepository.DeleteCommentRepo(comment);
-            
+
+            var knowledgeBase = await _dbContext.KnowledgeBases.FindAsync(knowledgeBaseId);
+            if (knowledgeBase != null)
+            {
+                return false;
+            }
+            knowledgeBase.NumberOfComments = knowledgeBase.NumberOfComments.GetValueOrDefault(0) - 1;
+            _dbContext.KnowledgeBases.Update(knowledgeBase);
+            _dbContext.SaveChanges();
+
             return true;
         }
     }

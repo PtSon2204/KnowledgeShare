@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace KnowledgeShare.ViewModels.Content
 {
@@ -21,6 +22,6 @@ namespace KnowledgeShare.ViewModels.Content
 
         public string? Note { get; set; }
         public string? Labels { get; set; }
-
+        public List<IFormFile> Attachments { get; set; }
     }
 }

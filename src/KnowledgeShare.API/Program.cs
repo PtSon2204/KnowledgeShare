@@ -12,6 +12,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using KnowledgeShare.ViewModels.ViewModels.Validator;
 using KnowledgeShare.API.Services.Interface;
+using Microsoft.AspNetCore.Mvc;
+using KnowledgeShare.API.Middleware;
+using Serilog;
 
 namespace KnowledgeShare.API
 {
@@ -20,6 +23,11 @@ namespace KnowledgeShare.API
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Host.UseSerilog((context, logger) =>
+            {
+                logger.ReadFrom.Configuration(context.Configuration);
+            });
 
             // Lấy Connection String từ appsettings.json
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -41,6 +49,8 @@ namespace KnowledgeShare.API
             builder.Services.AddScoped<ICommandsInFunctionRepository, CommandInFunctionRepository>();
             builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IVoteRepository, VoteRepository>();
+            builder.Services.AddScoped<IReportRepository, ReportRepository>();
 
             // Register services
             builder.Services.AddScoped<IRoleService, RoleService>();
@@ -52,9 +62,18 @@ namespace KnowledgeShare.API
             builder.Services.AddScoped<ICommandInFunctionService, CommandInFunctionService>();
             builder.Services.AddScoped<IPermissionService, PermissionService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IVoteService, VoteService>();
+            builder.Services.AddScoped<IReportService, ReportService>();
 
             //Sign in Identity
             builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //tắt cái model state của asp có sẵn
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
 
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -130,6 +149,8 @@ namespace KnowledgeShare.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseErrorWrapping();
 
             app.UseHttpsRedirection();
 

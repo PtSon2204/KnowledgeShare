@@ -1,4 +1,6 @@
-﻿using KnowledgeShare.API.Services.Interface;
+﻿using KnowledgeShare.API.Authorization;
+using KnowledgeShare.API.Constants;
+using KnowledgeShare.API.Services.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +18,7 @@ namespace KnowledgeShare.API.Controllers
         }
 
         [HttpGet]
+        [ClaimRequirement(FunctionCode.SYSTEM_PERMISSION, CommandCode.VIEW)]
         public async Task<IActionResult> GetAllCommandViews()
         {
             var result = await _permissionService.GetAllCommandViews();
